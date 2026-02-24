@@ -1,0 +1,156 @@
+
+body{
+  font-family: "Plus Jakarta Sans", sans-serif !important;
+  font-optical-sizing: auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* navbar */
+.navbar{
+    border-bottom:1px solid grey ;
+    height: 5rem;
+}
+.fa-compass{
+    color: #fe424d;
+    font-size: 2rem;
+}
+.nav-link{
+    color: #222222 !important;
+
+}
+/* footer */
+.f-info-links{
+    text-decoration: none;
+    color: #222222;
+    width: 100%;
+}
+.f-info-socials ,.f-info-brand{
+    width: 100%;
+    
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+.f-info-socials i{
+    margin-right: 1rem;
+    font-size: 1.3rem;
+    
+    
+}
+.f-info-links:hover{
+    text-decoration: underline;
+}
+.f-info{
+    text-align: center;
+    height: 8rem;
+    background-color:#ebebeb ;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: space-evenly;
+
+}
+
+.card {
+    border: none !important;
+    margin-bottom: 2rem;
+    margin-right: 2rem;
+}
+.card-img-top{
+    border-radius: 1rem !important;
+    width: 100% !important;
+    object-fit: cover !important;
+}
+.card-body {
+    padding: 0;
+}
+.card-text{
+    font-size: 500;
+    font-weight: 400;
+}
+/* Card effetc */
+.card-img-overlay {
+    opacity: 0;
+}
+.card-img-overlay:hover{
+    background-color: #ebebeb;
+    opacity:0.2;
+}
+/* New page */
+.edit-btn ,.add-btn{
+    background-color: #fe424d !important;
+    border: none !important;
+}
+/* show */
+.show-img{
+    width: 100vh !important;
+    height: 20rem;
+}
+.btns{
+    display: flex !important;
+    flex-direction: row !important;
+    margin: 1rem 0;
+}
+
+.show-card{
+    padding: 0;
+    margin: 0;
+}
+
+.reviews-card {
+  width: 100%;
+  max-width: 1100px;
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.reviews-list.flexible {
+  display: flex;
+  flex-wrap: wrap;          /* allows wrapping */
+  gap: 16px 24px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.review-item {
+  flex: 1 1 45%;             /* 2 columns normally */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #eee;
+  min-width: 300px;          /* prevents squeezing */
+}
+
+.review-comment {
+  font-size: 15px;
+  color: #444;
+  margin-right: 10px;
+  flex: 1;                   /* text grows naturally */
+}
+
+.review-rating {
+  font-size: 16px;
+  font-weight: 600;
+  color: #f4b400;
+  white-space: nowrap;
+}
+
+/* Mobile friendly */
+@media (max-width: 600px) {
+  .review-item {
+    flex: 1 1 100%;
+  }
+}
+/* Fix Bootstrap 5 alert close button */
+.alert .btn-close {
+  box-shadow: none !important;
+  border: none !important;
+  background-color: transparent !important;
+}

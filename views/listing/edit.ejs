@@ -1,0 +1,104 @@
+<% layout("/layouts/boilerplate") %>
+<body>
+<div class="row mt-2">
+         <div class="col-8 offset-2 " >
+    <h3>Edit your listing</h3><br>
+        <form action="/listings/<%= listing._id %>?_method=PUT" 
+           enctype="multipart/form-data" method="post"> 
+        <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input id="title" class="form-control" type="text" value="<%= listing.title %>" name="listing[title]" required>
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <textarea  id="description" class="form-control" name="listing[description]" required><%= listing.description %></textarea>
+        </div>
+        <div class="mb-3">
+            Image preview <br>
+            <img src="<%= originalImageUrl%>" alt=""
+            width="300"
+            height="200"
+            style="object-fit: cover;">
+          </div>
+        <div class="mb-3">
+            <label for="image" class="form-label">Upload New Image </label>
+            <input id="image" class="form-control" type="file"  name="image" >
+        </div>
+        <div class="mb-3">
+  <label for="category" class="form-label fw-semibold">
+    Category
+  </label>
+
+  <select
+    class="form-select"
+    id="category"
+    name="listing[category]"
+    required
+  >
+    <option value="trending"
+      <%= listing.category === "trending" ? "selected" : "" %>>
+      Trending
+    </option>
+
+    <option value="rooms"
+      <%= listing.category === "rooms" ? "selected" : "" %>>
+      Rooms
+    </option>
+
+    <option value="iconic-cities"
+      <%= listing.category === "iconic-cities" ? "selected" : "" %>>
+      Iconic Cities
+    </option>
+
+    <option value="mountains"
+      <%= listing.category === "mountains" ? "selected" : "" %>>
+      Mountains
+    </option>
+
+    <option value="amazing-pools"
+      <%= listing.category === "amazing-pools" ? "selected" : "" %>>
+      Amazing Pools
+    </option>
+
+    <option value="camping"
+      <%= listing.category === "camping" ? "selected" : "" %>>
+      Camping
+    </option>
+
+    <option value="farms"
+      <%= listing.category === "farms" ? "selected" : "" %>>
+      Farms
+    </option>
+
+    <option value="arctic"
+      <%= listing.category === "arctic" ? "selected" : "" %>>
+      Arctic
+    </option>
+  </select>
+</div>
+
+        <div class="row">
+            <div class="mb-3 col-md-4">
+            <label for="price" class="form-label">Price</label>
+            <input id="price" class="form-control" type="number" value="<%= listing.price %>" name="listing[price]" required>
+        </div>
+        <div class="mb-3 col-md-8">
+            <label for="country" class="form-label">Country</label>
+            <input id="country" class="form-control" type="text" value="<%= listing.country%>" name="listing[country]" required>
+        </div>
+        </div>
+        <div class="mb-3">
+            <label for="location" class="form-label">Location</label>
+            <input id="location" class="form-control" type="text" value="<%= listing.location %>" name="listing[location]" required>
+        </div>
+        
+        <br>
+        
+        
+        <button class="btn edit-btn mb-2">Edit</button>
+        <br><br>
+    </form>
+    </div>
+</div>
+</body>
+   
