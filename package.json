@@ -1,6 +1,6 @@
 {
-  "engines" : {
-    "version" :"v24.2.0"
+  "engines": {
+    "version": "v24.2.0"
   },
   "name": "project1",
   "version": "1.0.0",
@@ -14,7 +14,7 @@
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
-    "cloudinary": "^2.9.0",
+    "cloudinary": "^1.41.0",
     "connect-flash": "^0.1.1",
     "cookie-parser": "^1.4.7",
     "dotenv": "^17.2.3",
