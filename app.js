@@ -37,7 +37,7 @@ app.engine('ejs',ejsMate)
 
 app.use(express.static(path.join(__dirname,"/public")))
 
-const dburl = process.env.ATLAS_DBURL
+const dburl = process.env.ATLAS_DBURL;
 async function main() {
     await mongoose.connect(dburl);
 }
