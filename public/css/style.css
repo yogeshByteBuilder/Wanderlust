@@ -1,3 +1,12 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html{
+  overflow-x: hidden;
+}
 
 body{
   font-family: "Plus Jakarta Sans", sans-serif !important;
@@ -5,12 +14,19 @@ body{
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
 }
 
 /* navbar */
 .navbar{
     border-bottom:1px solid grey ;
-    height: 5rem;
+    min-height: 5rem;
 }
 .fa-compass{
     color: #fe424d;
@@ -21,6 +37,9 @@ body{
 
 }
 /* footer */
+footer.footer{
+    background-color:#ebebeb ;
+}
 .f-info-links{
     text-decoration: none;
     color: #222222;
@@ -44,12 +63,11 @@ body{
 }
 .f-info{
     text-align: center;
-    height: 8rem;
-    background-color:#ebebeb ;
+    padding: 2rem 0;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: space-evenly;
+    align-items: center;
 
 }
 
@@ -67,7 +85,7 @@ body{
     padding: 0;
 }
 .card-text{
-    font-size: 500;
+    font-size: 0.95rem;
     font-weight: 400;
 }
 /* Card effetc */
@@ -84,19 +102,40 @@ body{
     border: none !important;
 }
 /* show */
-.show-img{
-    width: 100vh !important;
-    height: 20rem;
+.show-image-wrapper{
+    max-width: 500px;
 }
+.show-img{
+    width: 100% !important;
+    height: clamp(10rem, 25vw, 16rem);
+    object-fit: cover;
+    border-radius: 0.75rem;
+}
+
 .btns{
-    display: flex !important;
-    flex-direction: row !important;
-    margin: 1rem 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+.btns form{
+    margin: 0;
 }
 
 .show-card{
     padding: 0;
     margin: 0;
+}
+
+/* edit page image preview - responsive instead of fixed px */
+.edit-preview-img{
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+    border-radius: 0.5rem;
 }
 
 .reviews-card {
@@ -117,22 +156,71 @@ body{
   padding: 0;
   margin: 0;
 }
-
 .review-item {
   flex: 1 1 45%;             /* 2 columns normally */
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px;
+  background: #fbfbfb;
+  border: 1px solid #e8e8e8;
+  border-left: 4px solid #fe424d;
+  border-radius: 8px;
+  min-width: 220px;
+  max-width: 100%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+
+
+.review-main{
+  display: flex;
+  gap: 10px;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.review-author{
+  flex-shrink: 0;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  background: #fe424d;
+  color: #fff;
+  font-weight: 700;
+  font-size: 0;
+  display: flex;
   align-items: center;
-  padding-bottom: 8px;
-  border-bottom: 1px solid #eee;
-  min-width: 300px;          /* prevents squeezing */
+  justify-content: center;
+}
+.review-author::first-letter{
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+
+.review-body{
+  min-width: 0;
+}
+
+.review-username{
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 2px;
+}
+
+.review-actions{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  flex-shrink: 0;
 }
 
 .review-comment {
   font-size: 15px;
   color: #444;
-  margin-right: 10px;
-  flex: 1;                   /* text grows naturally */
 }
 
 .review-rating {

@@ -2,14 +2,26 @@ const Listing = require("../models/listing")
 
 module.exports.index = async (req,res) =>{
 
-    const {category} = req.query;
+    const {category, search} = req.query;
+    // console.log("DEBUG index route hit. req.query =", req.query);
+
     let filter = {};
     if(category){
         filter.category = category;
     }
+    if(search && search.trim() !== ""){
+        const regex = new RegExp(search.trim(), "i"); // case-insensitive partial match
+        filter.$or = [
+            { location: regex },
+            { country: regex },
+            { title: regex },
+        ];
+    }
+    // console.log("DEBUG mongo filter =", JSON.stringify(filter));
 
    const allListings = await Listing.find(filter);
-   res.render("listing/index.ejs",{allListings, category})
+//    console.log("DEBUG matched listings count =", allListings.length);
+   res.render("listing/index.ejs",{allListings, category, search})
 }
 
 module.exports.createlistingpage = (req,res) =>{

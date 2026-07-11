@@ -1,6 +1,6 @@
 <% if (success && success.length > 0) { %>
 <div class="alert alert-success alert-dismissible fade show d-flex align-items-center mx-auto" 
-role="alert" style="width: max-content">
+role="alert" style="width: fit-content; max-width: 100%;">
   <div class="flex-grow-1">
     <%= success %>
   </div>
@@ -14,7 +14,7 @@ role="alert" style="width: max-content">
 <% if (error && error.length > 0) { %>
 <div class="alert alert-danger 
 alert-dismissible fade show d-flex align-items-center mx-auto
-" style="width: max-content ;" role="alert">
+" style="width: fit-content; max-width: 100%;" role="alert">
   <div class="flex-grow-1">
     <%= error %>
   </div>

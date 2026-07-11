@@ -16,10 +16,10 @@
 <body class="d-flex flex-column min-vh-100">
 
     <!-- <h1>Wanderlust</h1> -->
-     <%- include("../includes/navbar.ejs") %>
+     <%- include("../includes/navbar.ejs", { currUser: typeof currUser !== "undefined" ? currUser : null, search: typeof search !== "undefined" ? search : "" }) %>
    <main class="flex-fill">
     <div class="container">
-        <%- include("../includes/flash.ejs") %>
+        <%- include("../includes/flash.ejs", { success: typeof success !== "undefined" ? success : null, error: typeof error !== "undefined" ? error : null }) %>
         <%- body %>
     </div>
 </main>

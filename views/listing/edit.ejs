@@ -1,7 +1,6 @@
 <% layout("/layouts/boilerplate") %>
-<body>
 <div class="row mt-2">
-         <div class="col-8 offset-2 " >
+         <div class="col-12 col-md-8 offset-md-2 " >
     <h3>Edit your listing</h3><br>
         <form action="/listings/<%= listing._id %>?_method=PUT" 
            enctype="multipart/form-data" method="post"> 
@@ -15,10 +14,7 @@
         </div>
         <div class="mb-3">
             Image preview <br>
-            <img src="<%= originalImageUrl%>" alt=""
-            width="300"
-            height="200"
-            style="object-fit: cover;">
+            <img src="<%= originalImageUrl%>" alt="" class="edit-preview-img">
           </div>
         <div class="mb-3">
             <label for="image" class="form-label">Upload New Image </label>
@@ -100,5 +96,4 @@
     </form>
     </div>
 </div>
-</body>
    

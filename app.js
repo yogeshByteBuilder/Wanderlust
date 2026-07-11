@@ -16,6 +16,7 @@ const User = require("./models/user");
 const path = require("path");
 const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
+const ExpressError = require("./utils/ExpressError.js");
 
 const listingRouter = require("./routes/listing");
 const reviewRouter = require("./routes/review");
@@ -86,6 +87,17 @@ async function startServer(){
     app.use("/listings", listingRouter);
     app.use("/listings/:id/reviews", reviewRouter);
     app.use("/", userRouter);
+
+    // 404 handler — after all routers, before the error handler
+    app.use((req, res, next) => {
+        next(new ExpressError(404, "Page not found"));
+    });
+
+    // Global error handler — must be last
+    app.use((err, req, res, next) => {
+        let { statusCode = 500, message = "Something went wrong" } = err;
+        res.status(statusCode).render("error.ejs", { err: { message, stack: err.stack } });
+    });
 
     // 7️⃣ START SERVER
     app.listen(8080,()=>{

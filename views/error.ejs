@@ -1,10 +1,10 @@
 <% layout("/layouts/boilerplate") %>
 <div class="row ">
-    <div class="alert alert-danger col-6 offset-3 mt-3" role="alert">
+    <div class="alert alert-danger col-12 col-md-6 offset-md-3 mt-3" role="alert">
         <h4 class="alert-heading"><%= err.message %></h4>
         <!-- <h4 class="alert-heading"></h4> -->
         <!-- here you can print error stack also -->
-           <%- console.log(err.stack) %>
+           <% console.log(err.stack) %>
       
     </div>
 </div>

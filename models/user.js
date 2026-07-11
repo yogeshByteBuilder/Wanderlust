@@ -1,8 +1,7 @@
 
 const mongoose = require("mongoose");
-const { default: passportLocalMongoose } = require("passport-local-mongoose");
+const passportLocalMongoose = require("passport-local-mongoose").default;
 const Schema = mongoose.Schema;
-const passportLocalSchema = require("passport-local-mongoose")
 //defines username and password automatically
 const userSchema = new Schema({
     email : {

@@ -14,4 +14,6 @@ async function addCategory() {
   mongoose.connection.close();
 }
 
-addCategory();
+// addCategory();
+
+// it is used for patchingvold data to add category
