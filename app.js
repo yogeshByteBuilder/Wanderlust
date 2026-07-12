@@ -88,6 +88,9 @@ async function startServer(){
     app.use("/listings/:id/reviews", reviewRouter);
     app.use("/", userRouter);
 
+    app.get("/health", (req, res) => {
+        res.status(200).send("OK");
+    });
     // 404 handler — after all routers, before the error handler
     app.use((req, res, next) => {
         next(new ExpressError(404, "Page not found"));
